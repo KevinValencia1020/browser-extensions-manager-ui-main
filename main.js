@@ -35,7 +35,24 @@ const renderExtensions = (extensions) =>{
         }
     });
 
-    
+    // Inyecto las cards de las extensiones filtradas
+
+    container.innerHTML = filteredExtensions.map(extensions => 
+        /* html */
+        `
+            <div class="card">
+                <div class="card__content">
+                    <img src="${extensions.icon}" alt="${extensions.name} icon" class="card__icon">
+                    <div class="card__info">
+                        <h2 class="card__name">${extensions.name}</h2>
+                    </div>
+                </div>
+                <button class="card__button">
+                    <span class="card__button-remove">Remove</span>
+                </button>
+            </div>
+        `
+    ).join("");
 }
 dataJson("./data.json");
 // renderExtensions("all");
